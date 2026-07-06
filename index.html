@@ -3,191 +3,428 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>SellerPro - Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="Logo-removebg-preview - Copy.png" alt="Logo">
-            <h1>E-Commerce-Store</h1>
-            
-        </div>
-        <div class="nav">
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="Product.html">Products</a></li>
-                <li><a href="Order.html">Orders</a></li>
-                <li><a href="Review.html">Reviews</a></li>
-                <li><a href="Customer.html">Customers</a></li>
-     </ul>
-        </div>
-        <div class="hamburger">
-    <i class="fa-solid fa-bars"></i>
-</div>
-        <div class="nav-right">
-            <div class="search">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
-    <div class="notification">
 
-    <i class="fa-solid fa-bell"></i>
-
-    <div class="notification-box">
-
-        <p>New Order Received</p>
-        <p>Low Stock Alert</p>
-        <p>New Customer Review</p>
-
-    </div>
-
-</div>
-  
-        </div>
-    </nav>
-  <main>
-
-    <!-- Welcome Section -->
-    <section class="welcome">
-        <div>
-            <h2>Welcome Back, Neha 👋</h2>
-            <p>Your sales increased by 12% this month.</p>
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-logo">
+            <i class="fa-solid fa-store"></i>
+            <span>SellerPro</span>
         </div>
 
-        <button class="add-btn">
-            <i class="fa-solid fa-plus"></i>
-            Add Product
-        </button>
-    </section>
+        <div class="sidebar-section">Main Menu</div>
 
-    <!-- Dashboard Cards -->
-    <section class="overview">
-
-        <div class="card">
-            <i class="fa-solid fa-dollar-sign"></i>
-            <h3>Total Revenue</h3>
-            <h1>$24,500</h1>
-            <p>+12% this month</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <h3>Total Orders</h3>
-            <h1>1,250</h1>
-            <p>+8% this month</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-box"></i>
-            <h3>Active Products</h3>
-            <h1>340</h1>
-            <p>15 New Products</p>
-        </div>
-
-        <div class="card">
-            <i class="fa-solid fa-truck"></i>
-            <h3>Pending Shipments</h3>
-            <h1>25</h1>
-            <p>Needs Attention</p>
-        </div>
-
-        <div class="card">
+        <a href="index.html" class="nav-item active">
+            <i class="fa-solid fa-gauge-high"></i>
+            Dashboard
+        </a>
+        <a href="Product.html" class="nav-item">
+            <i class="fa-solid fa-box-open"></i>
+            Products
+        </a>
+        <a href="Order.html" class="nav-item">
+            <i class="fa-solid fa-cart-flatbed"></i>
+            Orders
+            <span class="nav-badge">8</span>
+        </a>
+        <a href="Review.html" class="nav-item">
             <i class="fa-solid fa-star"></i>
-            <h3>Customer Rating</h3>
-            <h1>4.8 ★</h1>
-            <p>Excellent Feedback</p>
-        </div>
+            Reviews
+        </a>
+        <a href="Customer.html" class="nav-item">
+            <i class="fa-solid fa-users"></i>
+            Customers
+        </a>
 
-    </section>
+        <div class="sidebar-section">Store</div>
 
-    <!-- Analytics + Orders -->
-    <section class="dashboard-grid">
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-warehouse"></i>
+            Inventory
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-chart-line"></i>
+            Analytics
+        </a>
+        <a href="#" class="nav-item">
+            <i class="fa-solid fa-bell"></i>
+            Notifications
+            <span class="nav-badge red">3</span>
+        </a>
 
-        <div class="analytics">
-            <h2>Revenue Analytics</h2>
-
-            <div class="chart">
-                <div class="bar" style="height:100px"></div>
-                <div class="bar" style="height:150px"></div>
-                <div class="bar" style="height:120px"></div>
-                <div class="bar" style="height:180px"></div>
-                <div class="bar" style="height:220px"></div>
-                <div class="bar" style="height:160px"></div>
+        <div class="sidebar-bottom">
+            <div class="user-card">
+                <div class="user-avatar">N</div>
+                <div>
+                    <div class="user-name">Neha </div>
+                    <div class="user-role">Seller · Pro Plan</div>
+                </div>
             </div>
         </div>
+    </aside>
 
-        <div class="recent-orders">
-            <h2>Recent Orders</h2>
+    <div class="main-wrapper">
 
-            <div class="order-item">
-                <span>#1001</span>
-                <span class="completed">Completed</span>
+        <header class="topbar">
+            <button class="hamburger" id="hamburger">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+            <div class="topbar-title">Dashboard</div>
+            <div class="topbar-search">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" placeholder="Search...">
+            </div>
+            <div class="topbar-right">
+                <div class="notif-btn" id="notifBtn">
+                    <i class="fa-solid fa-bell"></i>
+                    <span class="notif-dot"></span>
+                    <div class="notif-dropdown">
+                        <p><i class="fa-solid fa-circle-dot" style="color:#ef4444"></i> New Order Received</p>
+                        <p><i class="fa-solid fa-circle-dot" style="color:#f97316"></i> Low Stock Alert</p>
+                        <p><i class="fa-solid fa-circle-dot" style="color:#2563eb"></i> New Customer Review</p>
+                    </div>
+                </div>
+                <button class="add-btn" onclick="alert('No Products to add yet!')">
+                    <i class="fa-solid fa-plus"></i> Add Product
+                </button>
+            </div>
+        </header>
+
+        <main class="page-content">
+
+            <div class="welcome-banner">
+                <div>
+                    <h2>Welcome Back, Neha 👋</h2>
+                    <p>Your sales increased by <strong>12%</strong> this month. Great job!</p>
+                </div>
+                <div class="welcome-date">
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Thursday, June 12, 2026
+                </div>
             </div>
 
-            <div class="order-item">
-                <span>#1002</span>
-                <span class="pending">Pending</span>
+            <div class="stats-grid">
+
+                <div class="stat-card">
+                    <div class="stat-icon green">
+                        <i class="fa-solid fa-dollar-sign"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Total Revenue</p>
+                        <h2>$24,500</h2>
+                        <span class="stat-change up">
+                            <i class="fa-solid fa-arrow-trend-up"></i> +12% this month
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon blue">
+                        <i class="fa-solid fa-cart-shopping"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Total Orders</p>
+                        <h2>1,250</h2>
+                        <span class="stat-change up">
+                            <i class="fa-solid fa-arrow-trend-up"></i> +8% this month
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon orange">
+                        <i class="fa-solid fa-box"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Active Products</p>
+                        <h2>340</h2>
+                        <span class="stat-change up">
+                            <i class="fa-solid fa-arrow-trend-up"></i> 15 new products
+                        </span>
+                    </div>
+                </div>
+
+                <div class="stat-card">
+                    <div class="stat-icon yellow">
+                        <i class="fa-solid fa-star"></i>
+                    </div>
+                    <div class="stat-info">
+                        <p>Customer Rating</p>
+                        <h2>4.8 ★</h2>
+                        <span class="stat-change up">
+                            <i class="fa-solid fa-arrow-trend-up"></i> Excellent feedback
+                        </span>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="order-item">
-                <span>#1003</span>
-                <span class="completed">Completed</span>
+            <div class="mid-grid">
+
+                <div class="panel chart-panel">
+                    <div class="panel-header">
+                        <div>
+                            <h3>Revenue Analytics</h3>
+                            <span class="panel-sub">Jan – Jun 2026</span>
+                        </div>
+                        <div class="chart-total">
+                            <span class="chart-total-value">$28.2k</span>
+                            <span class="chart-total-label">
+                                <i class="fa-solid fa-arrow-trend-up"></i> +18% vs prior period
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="revenue-chart">
+                        <div class="chart-grid-lines">
+                            <span></span><span></span><span></span><span></span>
+                        </div>
+
+                        <div class="bar-chart" id="revenueBarChart">
+                            <div class="bar-col">
+                                <span class="bar-value">$3.2k</span>
+                                <div class="bar-wrap"><div class="bar" data-height="49"></div></div>
+                                <span class="bar-label">Jan</span>
+                            </div>
+                            <div class="bar-col">
+                                <span class="bar-value">$4.1k</span>
+                                <div class="bar-wrap"><div class="bar" data-height="63"></div></div>
+                                <span class="bar-label">Feb</span>
+                            </div>
+                            <div class="bar-col">
+                                <span class="bar-value">$3.7k</span>
+                                <div class="bar-wrap"><div class="bar" data-height="57"></div></div>
+                                <span class="bar-label">Mar</span>
+                            </div>
+                            <div class="bar-col">
+                                <span class="bar-value">$5.8k</span>
+                                <div class="bar-wrap"><div class="bar" data-height="89"></div></div>
+                                <span class="bar-label">Apr</span>
+                            </div>
+                            <div class="bar-col">
+                                <span class="bar-value">$4.9k</span>
+                                <div class="bar-wrap"><div class="bar" data-height="75"></div></div>
+                                <span class="bar-label">May</span>
+                            </div>
+                            <div class="bar-col peak">
+                                <span class="bar-value">$6.5k</span>
+                                <div class="bar-wrap"><div class="bar active" data-height="100"></div></div>
+                                <span class="bar-label">Jun</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Recent Orders</h3>
+                        <a href="Order.html" class="panel-link">View all →</a>
+                    </div>
+                    <div class="order-list">
+                        <div class="order-row">
+                            <div class="order-id">#5041</div>
+                            <div class="order-name">AirPods Pro</div>
+                            <span class="badge completed">Completed</span>
+                        </div>
+                        <div class="order-row">
+                            <div class="order-id">#5040</div>
+                            <div class="order-name">Nike Air Max</div>
+                            <span class="badge pending">Pending</span>
+                        </div>
+                        <div class="order-row">
+                            <div class="order-id">#5039</div>
+                            <div class="order-name">Kindle Paperwhite</div>
+                            <span class="badge processing">Processing</span>
+                        </div>
+                        <div class="order-row">
+                            <div class="order-id">#5038</div>
+                            <div class="order-name">MX Keys Keyboard</div>
+                            <span class="badge completed">Completed</span>
+                        </div>
+                        <div class="order-row">
+                            <div class="order-id">#5037</div>
+                            <div class="order-name">Samsung SSD</div>
+                            <span class="badge cancelled">Cancelled</span>
+                        </div>
+                    </div>
+                </div>
+
             </div>
 
-            <div class="order-item">
-                <span>#1004</span>
-                <span class="pending">Pending</span>
+            <div class="bottom-grid">
+
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Top Products</h3>
+                        <a href="Product.html" class="panel-link">View all →</a>
+                    </div>
+                    <table class="simple-table">
+                        <thead>
+                            <tr>
+                                <th>Product</th>
+                                <th>Sales</th>
+                                <th>Revenue</th>
+                                <th>Stock</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>🎧 AirPods Pro</td>
+                                <td>312</td>
+                                <td class="green-text">$77,688</td>
+                                <td><span class="badge completed">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>👟 Nike Air Max</td>
+                                <td>229</td>
+                                <td class="green-text">$36,421</td>
+                                <td><span class="badge completed">In Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>📱 iPhone 15</td>
+                                <td>187</td>
+                                <td class="green-text">$186,813</td>
+                                <td><span class="badge pending">Low Stock</span></td>
+                            </tr>
+                            <tr>
+                                <td>⌨️ MX Keys</td>
+                                <td>145</td>
+                                <td class="green-text">$15,805</td>
+                                <td><span class="badge completed">In Stock</span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pending Shipments -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Pending Shipments</h3>
+                        <span class="panel-link">25 total</span>
+                    </div>
+                    <div class="shipment-list">
+                        <div class="shipment-row">
+                            <div class="shipment-icon"><i class="fa-solid fa-truck"></i></div>
+                            <div class="shipment-info">
+                                <strong>#5040 — Nike Air Max</strong>
+                                <span>Ships today</span>
+                            </div>
+                            <span class="badge pending">Pending</span>
+                        </div>
+                        <div class="shipment-row">
+                            <div class="shipment-icon"><i class="fa-solid fa-truck"></i></div>
+                            <div class="shipment-info">
+                                <strong>#5036 — iPhone 15</strong>
+                                <span>In Transit</span>
+                            </div>
+                            <span class="badge processing">Transit</span>
+                        </div>
+                        <div class="shipment-row">
+                            <div class="shipment-icon"><i class="fa-solid fa-truck"></i></div>
+                            <div class="shipment-info">
+                                <strong>#5033 — Samsung SSD</strong>
+                                <span>Awaiting pickup</span>
+                            </div>
+                            <span class="badge pending">Pickup</span>
+                        </div>
+                        <div class="shipment-row">
+                            <div class="shipment-icon"><i class="fa-solid fa-truck"></i></div>
+                            <div class="shipment-info">
+                                <strong>#5030 — MX Keys</strong>
+                                <span>Packing</span>
+                            </div>
+                            <span class="badge processing">Packing</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Notifications -->
+                <div class="panel">
+                    <div class="panel-header">
+                        <h3>Notifications</h3>
+                        <span class="panel-link">3 new</span>
+                    </div>
+                    <div class="notif-list">
+                        <div class="notif-item danger">
+                            <i class="fa-solid fa-triangle-exclamation"></i>
+                            <div>
+                                <strong>Low Stock Alert</strong>
+                                <p>AirPods Pro — only 3 units left</p>
+                                <small>2 min ago</small>
+                            </div>
+                        </div>
+                        <div class="notif-item success">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div>
+                                <strong>New Order Received</strong>
+                                <p>Order #5041 from Sarah Ahmed</p>
+                                <small>15 min ago</small>
+                            </div>
+                        </div>
+                        <div class="notif-item info">
+                            <i class="fa-solid fa-star"></i>
+                            <div>
+                                <strong>New 5-Star Review</strong>
+                                <p>John Kim reviewed Nike Air Max</p>
+                                <small>1 hour ago</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </div>
+
+        </main>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-col">
+                <h2>🛒 SellerPro</h2>
+                <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <a href="index.html">Dashboard</a>
+                <a href="Product.html">Products</a>
+                <a href="Order.html">Orders</a>
+                <a href="Review.html">Reviews</a>
+            </div>
+            <div class="footer-col">
+                <h3>Features</h3>
+                <a href="#">Inventory Management</a>
+                <a href="#">Sales Analytics</a>
+                <a href="#">Customer Reviews</a>
+                <a href="#">Notifications</a>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p>Email: support@sellerpro.com</p>
+                <p>Phone: +92 300 0000000</p>
+                <p>Location: Karachi, Pakistan</p>
+            </div>
+        </footer>
+        <div class="footer-bottom">
+            <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
         </div>
 
-    </section>
-
-</main>
-<footer class="footer">
-
-    <!-- Brand Section -->
-    <div class="footer-col brand">
-        <h2>🛒 SellerPro</h2>
-        <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights in one place.</p>
     </div>
 
-    <!-- Quick Links -->
-    <div class="footer-col">
-        <h3>Quick Links</h3>
-        <a href="#">Dashboard</a>
-        <a href="#">Products</a>
-        <a href="#">Orders</a>
-        <a href="#">Analytics</a>
-    </div>
-
-    <!-- Features -->
-    <div class="footer-col">
-        <h3>Features</h3>
-        <a href="#">Inventory Management</a>
-        <a href="#">Sales Analytics</a>
-        <a href="#">Customer Reviews</a>
-        <a href="#">Notifications</a>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-col">
-        <h3>Contact</h3>
-        <p>Email: support@sellerpro.com</p>
-        <p>Phone: +92 300 0000000</p>
-        <p>Location: Karachi, Pakistan</p>
-    </div>
-
-</footer>
-
-<!-- Bottom Bar -->
-<div class="footer-bottom">
-    <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
-</div>
-    
+    <script src="script.js"></script>
+    <script>
+        // Animate revenue bars growing in from 0, and keep them keyboard/hover friendly.
+        // Safe to keep even if script.js already handles other bar charts elsewhere.
+        document.addEventListener('DOMContentLoaded', function () {
+            var bars = document.querySelectorAll('#revenueBarChart .bar');
+            bars.forEach(function (bar, i) {
+                var target = bar.getAttribute('data-height') + '%';
+                setTimeout(function () {
+                    bar.style.height = target;
+                }, 120 * i);
+            });
+        });
+    </script>
 </body>
 </html>
-
-<script src="script.js"></script>

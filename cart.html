@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart | SellerPro</title>
+    <link href="style.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="logo">
+            <img src="Logo-removebg-preview - Copy.png" alt="Logo">
+            <h1>E-Commerce-Store</h1>
+        </div>
+        <div class="nav">
+            <ul>
+                <li><a href="index.html">Dashboard</a></li>
+                <li><a href="Product.html">Products</a></li>
+                <li><a href="Order.html">Orders</a></li>
+                <li><a href="Review.html">Reviews</a></li>
+                <li><a href="Customer.html">Customers</a></li>
+            </ul>
+        </div>
+        <div class="hamburger"><i class="fa-solid fa-bars"></i></div>
+        <div class="nav-right">
+            <div class="search">
+                <input type="text" placeholder="Search...">
+                <button>Search</button>
+            </div>
+            <div class="notification">
+                <i class="fa-solid fa-bell"></i>
+                <div class="notification-box">
+                    <p>New Order Received</p>
+                    <p>Low Stock Alert</p>
+                    <p>New Customer Review</p>
+                </div>
+            </div>
+            <a href="cart.html" class="cart-icon-nav">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
+        </div>
+    </nav>
+
+    <!-- CART HERO -->
+    <section class="cart-hero">
+        <h1><i class="fa-solid fa-cart-shopping"></i> Your Cart</h1>
+        <p>Review your selected items before checkout</p>
+    </section>
+
+    <!-- CART CONTENT -->
+    <section class="cart-section">
+
+        <!-- LEFT: Cart Items -->
+        <div class="cart-items-col">
+
+            <div class="cart-header">
+                <h2>Cart Items (<span id="itemCount">0</span>)</h2>
+                <button class="clear-btn" id="clearCart">
+                    <i class="fa-solid fa-trash"></i> Clear All
+                </button>
+            </div>
+
+            <!-- Empty State -->
+            <div class="empty-cart" id="emptyCart">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <h3>Your cart is empty</h3>
+                <p>Go back and add some products!</p>
+                <a href="Product.html" class="shop-btn">Browse Products</a>
+            </div>
+
+            <!-- Cart Items List -->
+            <div id="cartItemsList"></div>
+
+        </div>
+
+        <!-- RIGHT: Order Summary -->
+        <div class="cart-summary-col">
+
+            <div class="summary-card">
+                <h3>Order Summary</h3>
+
+                <div class="summary-row">
+                    <span>Subtotal</span>
+                    <span id="subtotal">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Shipping</span>
+                    <span id="shipping">$0.00</span>
+                </div>
+                <div class="summary-row">
+                    <span>Tax (8%)</span>
+                    <span id="tax">$0.00</span>
+                </div>
+
+                <!-- Promo Code -->
+                <div class="promo-row">
+                    <input type="text" id="promoInput" placeholder="Promo code">
+                    <button id="promoBtn">Apply</button>
+                </div>
+                <div id="promoMsg"></div>
+
+                <div class="summary-divider"></div>
+
+                <div class="summary-row total-row">
+                    <span>Total</span>
+                    <span id="grandTotal">$0.00</span>
+                </div>
+
+                <button class="checkout-btn" id="checkoutBtn">
+                    <i class="fa-solid fa-lock"></i> Proceed to Checkout
+                </button>
+
+                <a href="Product.html" class="continue-btn">
+                    <i class="fa-solid fa-arrow-left"></i> Continue Shopping
+                </a>
+
+                <!-- Trust Badges -->
+                <div class="trust-badges">
+                    <div class="badge-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Secure Payment</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fa-solid fa-truck"></i>
+                        <span>Free Shipping over $50</span>
+                    </div>
+                    <div class="badge-item">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>Easy Returns</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- CHECKOUT MODAL -->
+    <div class="modal-overlay" id="checkoutModal">
+        <div class="checkout-modal">
+            <button class="modal-close" id="closeCheckout">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="checkout-success" id="checkoutSuccess" style="display:none;">
+                <div class="success-icon">
+                    <i class="fa-solid fa-check"></i>
+                </div>
+                <h2>Order Placed!</h2>
+                <p>Your order has been placed successfully.</p>
+                <p id="orderNumber"></p>
+                <a href="Product.html" class="shop-btn" style="margin-top:20px; display:inline-block;">
+                    Continue Shopping
+                </a>
+            </div>
+            <div id="checkoutForm">
+                <h2>Checkout</h2>
+                <p class="auth-sub">Fill in your delivery details</p>
+
+                <input type="text" placeholder="Full Name" id="checkName">
+                <input type="email" placeholder="Email Address" id="checkEmail">
+                <input type="text" placeholder="Phone Number" id="checkPhone">
+                <input type="text" placeholder="Delivery Address" id="checkAddress">
+
+                <select id="checkPayment">
+                    <option value="">Payment Method</option>
+                    <option value="card">Credit / Debit Card</option>
+                    <option value="cod">Cash on Delivery</option>
+                    <option value="easypaisa">Easypaisa</option>
+                    <option value="jazzcash">JazzCash</option>
+                </select>
+
+                <div class="summary-row" style="margin-top:15px;">
+                    <span style="font-weight:600;">Total to Pay:</span>
+                    <span id="modalTotal" style="font-weight:700; color:#2563eb;"></span>
+                </div>
+
+                <button class="checkout-btn" id="placeOrderBtn" style="margin-top:15px;">
+                    <i class="fa-solid fa-bag-shopping"></i> Place Order
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <footer class="footer">
+        <div class="footer-col brand">
+            <h2>🛒 SellerPro</h2>
+            <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Dashboard</a>
+            <a href="Product.html">Products</a>
+            <a href="Order.html">Orders</a>
+        </div>
+        <div class="footer-col">
+            <h3>Features</h3>
+            <a href="#">Inventory Management</a>
+            <a href="#">Sales Analytics</a>
+            <a href="#">Customer Reviews</a>
+        </div>
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@sellerpro.com</p>
+            <p>Phone: +92 300 0000000</p>
+            <p>Location: Karachi, Pakistan</p>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
+    </div>
+
+<script src="cart.js"></script>
+</body>
+</html>

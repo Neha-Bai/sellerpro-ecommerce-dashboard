@@ -3,169 +3,374 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Products | SellerPro</title>
     <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            <img src="Logo-removebg-preview - Copy.png" alt="Logo">
-            <h1>E-Commerce-Store</h1>
-            
+
+<!-- ========================
+     SIDEBAR
+======================== -->
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-logo">
+        <i class="fa-solid fa-store"></i>
+        SellerPro
+    </div>
+
+    <div class="sidebar-section">Main</div>
+
+    <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+
+    <a href="Product.html" class="nav-item active">
+        <i class="fa-solid fa-box"></i>
+        Products
+    </a>
+
+    <a href="Order.html" class="nav-item">
+        <i class="fa-solid fa-bag-shopping"></i>
+        Orders
+    </a>
+
+    <a href="Review.html" class="nav-item">
+        <i class="fa-solid fa-star"></i>
+        Reviews
+    </a>
+
+    <a href="Customer.html" class="nav-item">
+        <i class="fa-solid fa-users"></i>
+        Customers
+    </a>
+
+    <div class="sidebar-bottom">
+        <div class="user-card">
+            <div class="user-avatar">S</div>
+            <div>
+                <div class="user-name">Seller</div>
+                <div class="user-role">Store Manager</div>
+            </div>
         </div>
-        <div class="nav">
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="Product.html">Products</a></li>
-                <li><a href="#">Orders</a></li>
-                <li><a href="#">Reviews</a></li>
-                <li><a href="#">Customers</a></li>
-     </ul>
-        </div>
-        <div class="hamburger">
-    <i class="fa-solid fa-bars"></i>
-</div>
-        <div class="nav-right">
-            <div class="search">
+    </div>
+
+</aside>
+
+<!-- ========================
+     MAIN WRAPPER
+======================== -->
+<div class="main-wrapper">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <button class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <span class="topbar-title">Products</span>
+
+        <div class="topbar-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
             <input type="text" placeholder="Search...">
-            <button>Search</button>
         </div>
-    <div class="notification">
 
-    <i class="fa-solid fa-bell"></i>
+        <div class="topbar-right">
 
-    <div class="notification-box">
+            <a href="cart.html" class="cart-icon-nav">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <span class="cart-count" id="cartCount">0</span>
+            </a>
 
-        <p>New Order Received</p>
-        <p>Low Stock Alert</p>
-        <p>New Customer Review</p>
+            <div class="notif-btn" id="notifBtn">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notif-dot"></span>
+                <div class="notif-dropdown">
+                    <p><i class="fa-solid fa-circle-dot" style="color:#2563eb"></i> New Order Received</p>
+                    <p><i class="fa-solid fa-circle-dot" style="color:#ef4444"></i> Low Stock Alert</p>
+                    <p><i class="fa-solid fa-circle-dot" style="color:#22c55e"></i> New Customer Review</p>
+                </div>
+            </div>
 
+        </div>
     </div>
 
-</div>
-  
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+
+        <!-- HERO BANNER -->
+        <section class="product-hero" style="border-radius:12px; margin-bottom:20px;">
+            <div class="product-hero-text">
+                <h1>Our Collection</h1>
+                <p>Discover premium products handpicked for you</p>
+            </div>
+        </section>
+
+        <!-- CONTROLS BAR -->
+        <section class="controls-bar" style="border-radius:12px; margin-bottom:16px;">
+            <div class="search-bar">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="text" id="productSearch" placeholder="Search products...">
+            </div>
+
+            <div class="category-tabs">
+                <button class="cat-btn active" data-cat="all">All</button>
+                <button class="cat-btn" data-cat="electronics">Electronics</button>
+                <button class="cat-btn" data-cat="clothes">Clothes</button>
+                <button class="cat-btn" data-cat="cosmetics">Cosmetics</button>
+                <button class="cat-btn" data-cat="accessories">Accessories</button>
+            </div>
+
+            <div class="sort-add">
+                <select id="sortSelect">
+                    <option value="">Sort By</option>
+                    <option value="low">Price: Low to High</option>
+                    <option value="high">Price: High to Low</option>
+                    <option value="name">Name: A–Z</option>
+                </select>
+                <button class="add-btn" id="addProductBtn">
+                    <i class="fa-solid fa-plus"></i> Add Product
+                </button>
+            </div>
+        </section>
+
+        <!-- PRODUCT COUNT -->
+        <div class="product-meta">
+            <span id="productCount">6 Products</span>
         </div>
-    </nav>
 
-    <section class="Product-Section">
-        <h1>Welcome To Our Store</h1>
-        <h2>Explore Our Exclusive Collection of Products</h2>
+        <!-- PRODUCT GRID -->
+        <section class="product-list" id="productGrid">
 
-        <div class="search-bar">
-            <input type="text" placeholder="Search for products...">
-            <button>Search</button>
+            <div class="product-card" data-cat="electronics"
+                 data-name="Wireless Earphones"
+                 data-price="19.99"
+                 data-rating="4"
+                 data-desc="Premium wireless earphones with noise cancellation, 24hr battery life, and deep bass sound. Compatible with all Bluetooth devices."
+                 data-reviews='[{"name":"Ali","stars":5,"text":"Amazing sound quality!"},{"name":"Sara","stars":4,"text":"Great value for money."}]'>
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?w=600&q=80" alt="Earphones">
+                    <span class="badge">In Stock</span>
+                    <div class="card-overlay">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="cat-tag">Electronics</span>
+                    <h3>Wireless Earphones</h3>
+                    <div class="card-stars">★★★★☆</div>
+                    <div class="card-footer">
+                        <p class="price">$19.99</p>
+                        <button class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="clothes"
+                 data-name="Premium Hoodie"
+                 data-price="29.99"
+                 data-rating="5"
+                 data-desc="Ultra-soft cotton blend hoodie available in multiple colors. Perfect for casual wear and outdoor activities. Machine washable."
+                 data-reviews='[{"name":"Zara","stars":5,"text":"So comfortable and warm!"},{"name":"Ahmed","stars":5,"text":"Best hoodie I ever bought."}]'>
+                <div class="card-img-wrap">
+                    <img src="https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?w=600&q=80" alt="Clothes">
+                    <span class="badge">In Stock</span>
+                    <div class="card-overlay">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="cat-tag">Clothes</span>
+                    <h3>Premium Hoodie</h3>
+                    <div class="card-stars">★★★★★</div>
+                    <div class="card-footer">
+                        <p class="price">$29.99</p>
+                        <button class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="cosmetics"
+                 data-name="Cosmetics Kit"
+                 data-price="39.99"
+                 data-rating="4"
+                 data-desc="Complete professional cosmetics kit with 20 shades, long-lasting formula, dermatologist tested and cruelty free."
+                 data-reviews='[{"name":"Hina","stars":4,"text":"Great pigmentation!"},{"name":"Nadia","stars":5,"text":"Love this kit!"}]'>
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=600&q=80" alt="Cosmetics">
+                    <span class="badge">In Stock</span>
+                    <div class="card-overlay">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="cat-tag">Cosmetics</span>
+                    <h3>Cosmetics Kit</h3>
+                    <div class="card-stars">★★★★☆</div>
+                    <div class="card-footer">
+                        <p class="price">$39.99</p>
+                        <button class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="electronics"
+                 data-name="Smart Watch"
+                 data-price="89.99"
+                 data-rating="5"
+                 data-desc="Feature-packed smartwatch with heart rate monitor, GPS, sleep tracking, 7-day battery life and water resistance up to 50m."
+                 data-reviews='[{"name":"Bilal","stars":5,"text":"Best smartwatch at this price!"},{"name":"Usman","stars":4,"text":"Really useful features."}]'>
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600&q=80" alt="Watch">
+                    <span class="badge">In Stock</span>
+                    <div class="card-overlay">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="cat-tag">Electronics</span>
+                    <h3>Smart Watch</h3>
+                    <div class="card-stars">★★★★★</div>
+                    <div class="card-footer">
+                        <p class="price">$89.99</p>
+                        <button class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="accessories"
+                 data-name="Leather Wallet"
+                 data-price="24.99"
+                 data-rating="4"
+                 data-desc="Slim genuine leather wallet with RFID blocking, 8 card slots, and a sleek minimalist design. Available in black and brown."
+                 data-reviews='[{"name":"Omar","stars":4,"text":"Very slim and stylish."},{"name":"Kamran","stars":5,"text":"Great gift idea!"}]'>
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1627123424574-724758594e93?w=600&q=80" alt="Wallet">
+                    <span class="badge">In Stock</span>
+                    <div class="card-overlay">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="cat-tag">Accessories</span>
+                    <h3>Leather Wallet</h3>
+                    <div class="card-stars">★★★★☆</div>
+                    <div class="card-footer">
+                        <p class="price">$24.99</p>
+                        <button class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="product-card" data-cat="clothes"
+                 data-name="Running Shoes"
+                 data-price="59.99"
+                 data-rating="5"
+                 data-desc="Lightweight breathable running shoes with memory foam insole, anti-slip sole, and reflective strips for night running."
+                 data-reviews='[{"name":"Fahad","stars":5,"text":"Very comfortable for long runs."},{"name":"Asim","stars":5,"text":"Great grip and cushioning."}]'>
+                <div class="card-img-wrap">
+                    <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600&q=80" alt="Shoes">
+                    <span class="badge">In Stock</span>
+                    <div class="card-overlay">
+                        <button class="quick-view-btn">Quick View</button>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <span class="cat-tag">Clothes</span>
+                    <h3>Running Shoes</h3>
+                    <div class="card-stars">★★★★★</div>
+                    <div class="card-footer">
+                        <p class="price">$59.99</p>
+                        <button class="cart-btn"><i class="fa-solid fa-cart-plus"></i> Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </div>
+    <!-- end page-content -->
+
+    <!-- PRODUCT DETAIL MODAL -->
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <button class="modal-close" id="modalClose">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+            <div class="modal-body">
+                <div class="modal-left">
+                    <img src="" alt="" id="modalImg">
+                    <span class="badge" style="position:static; display:inline-block; margin-top:10px;">In Stock</span>
+                </div>
+                <div class="modal-right">
+                    <span class="cat-tag" id="modalCat"></span>
+                    <h2 id="modalName"></h2>
+                    <div class="modal-stars" id="modalStars"></div>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-desc" id="modalDesc"></p>
+                    <div class="qty-row">
+                        <span>Quantity:</span>
+                        <div class="qty-controls">
+                            <button id="qtyMinus">−</button>
+                            <span id="qtyValue">1</span>
+                            <button id="qtyPlus">+</button>
+                        </div>
+                        <span id="qtyTotal" class="qty-total"></span>
+                    </div>
+                    <div class="modal-actions">
+                        <button class="modal-cart-btn" id="modalCartBtn">
+                            <i class="fa-solid fa-cart-plus"></i> Add to Cart
+                        </button>
+                        <button class="modal-wish-btn">
+                            <i class="fa-regular fa-heart"></i> Wishlist
+                        </button>
+                    </div>
+                    <div class="modal-reviews">
+                        <h4>Customer Reviews</h4>
+                        <div id="reviewsList"></div>
+                    </div>
+                </div>
+            </div>
         </div>
-     
-     <button class="ad-btn">
-    <i class="fa-solid fa-plus"></i> Add Product
-</button>
+    </div>
 
-<button class="filter-btn">
-    <i class="fa-solid fa-filter"></i> Filter
-</button>
-    </section>
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
 
-    <br>
-    <h1> Available Products </h1>
-    <section class="product-list">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1165&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 1">
-             <span class="badge">In Stock</span>
-            <h3> Earphones </h3>
-            <p>$19.99</p>
-                <button class="cart-btn">Add to Cart</button>
-
-            
-        </div>
-        <div class="product-card">
-            <img src="https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 2">
-            <span class="badge">In Stock</span>
-            <h3>Clothes</h3>
-            <p>$29.99</p>
-                            <button class="cart-btn">Add to Cart</button>
-
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 3">
-            <span class="badge">In Stock</span>
-            <h3>Cosmetics</h3>
-            <p>$39.99</p>
-                            <button class="cart-btn">Add to Cart</button>
-
-        </div>
-</section>
-
- <section class="product-list">
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1546435770-a3e426bf472b?q=80&w=1165&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 1">
-             <span class="badge">In Stock</span>
-            <h3> Earphones </h3>
-            <p>$19.99</p>
-                            <button class="cart-btn">Add to Cart</button>
-
-        </div>
-        <div class="product-card">
-            <img src="https://plus.unsplash.com/premium_photo-1664202526559-e21e9c0fb46a?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 2">
-            <span class="badge">In Stock</span>
-            <h3>Clothes</h3>
-            <p>$29.99</p>
-                            <button class="cart-btn">Add to Cart</button>
-
-        </div>
-        </div>
-        <div class="product-card">
-            <img src="https://images.unsplash.com/photo-1512496015851-a90fb38ba796?q=80&w=735&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Product 3">
-            <span class="badge">In Stock</span>
-            <h3>Cosmetics</h3>
-            <p>$39.99</p>
-                            <button class="cart-btn">Add to Cart</button>
-
-        </div>
-</section>
+    <!-- FOOTER -->
     <footer class="footer">
-
-    <!-- Brand Section -->
-    <div class="footer-col brand">
-        <h2>🛒 SellerPro</h2>
-        <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights in one place.</p>
+        <div class="footer-col brand">
+            <h2>🛒 SellerPro</h2>
+            <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Dashboard</a>
+            <a href="Product.html">Products</a>
+            <a href="Order.html">Orders</a>
+            <a href="Review.html">Reviews</a>
+        </div>
+        <div class="footer-col">
+            <h3>Features</h3>
+            <a href="#">Inventory Management</a>
+            <a href="#">Sales Analytics</a>
+            <a href="#">Customer Reviews</a>
+            <a href="#">Notifications</a>
+        </div>
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@sellerpro.com</p>
+            <p>Phone: +92 300 0000000</p>
+            <p>Location: Karachi, Pakistan</p>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
     </div>
 
-    <!-- Quick Links -->
-    <div class="footer-col">
-        <h3>Quick Links</h3>
-        <a href="#">Dashboard</a>
-        <a href="#">Products</a>
-        <a href="#">Orders</a>
-        <a href="#">Analytics</a>
-    </div>
-
-    <!-- Features -->
-    <div class="footer-col">
-        <h3>Features</h3>
-        <a href="#">Inventory Management</a>
-        <a href="#">Sales Analytics</a>
-        <a href="#">Customer Reviews</a>
-        <a href="#">Notifications</a>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-col">
-        <h3>Contact</h3>
-        <p>Email: support@sellerpro.com</p>
-        <p>Phone: +92 300 0000000</p>
-        <p>Location: Karachi, Pakistan</p>
-    </div>
-
-</footer>
-
-<!-- Bottom Bar -->
-<div class="footer-bottom">
-    <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
 </div>
-    
+<!-- end main-wrapper -->
+
+<script src="product.js"></script>
 </body>
 </html>
-
-<script src="script.js"></script>

@@ -1,120 +1,206 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Customers | SellerPro</title>
     <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 <body>
- <nav class="navbar">
-        <div class="logo">
-            <img src="Logo-removebg-preview - Copy.png" alt="Logo">
-            <h1>E-Commerce-Store</h1>
-            
-        </div>
-        <div class="nav">
-            <ul>
-                <li><a href="index.html">Dashboard</a></li>
-                <li><a href="Product.html">Products</a></li>
-                <li><a href="Order.html">Orders</a></li>
-                <li><a href="Review.html">Reviews</a></li>
-                <li><a href="Customer.html">Customers</a></li>
-     </ul>
-        </div>
-        <div class="hamburger">
-    <i class="fa-solid fa-bars"></i>
-</div>
-        <div class="nav-right">
-            <div class="search">
-            <input type="text" placeholder="Search...">
-            <button>Search</button>
-        </div>
-    <div class="notification">
 
-    <i class="fa-solid fa-bell"></i>
+<!-- ========================
+     SIDEBAR
+======================== -->
+<aside class="sidebar" id="sidebar">
 
-    <div class="notification-box">
-
-        <p>New Order Received</p>
-        <p>Low Stock Alert</p>
-        <p>New Customer Review</p>
-
+    <div class="sidebar-logo">
+        <i class="fa-solid fa-store"></i>
+        SellerPro
     </div>
 
-</div>
-  
+    <div class="sidebar-section">Main</div>
+
+    <a href="index.html" class="nav-item">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+
+    <a href="Product.html" class="nav-item">
+        <i class="fa-solid fa-box"></i>
+        Products
+    </a>
+
+    <a href="Order.html" class="nav-item">
+        <i class="fa-solid fa-bag-shopping"></i>
+        Orders
+    </a>
+
+    <a href="Review.html" class="nav-item">
+        <i class="fa-solid fa-star"></i>
+        Reviews
+    </a>
+
+    <a href="Customer.html" class="nav-item active">
+        <i class="fa-solid fa-users"></i>
+        Customers
+    </a>
+
+    <div class="sidebar-bottom">
+        <div class="user-card">
+            <div class="user-avatar">S</div>
+            <div>
+                <div class="user-name">Seller</div>
+                <div class="user-role">Store Manager</div>
+            </div>
         </div>
-    </nav>
+    </div>
 
-    <section class="customer-section">
+</aside>
 
-        <h1>Customer Management</h1>
-        <p>View and manage your customers' information and activity.</p>
+<!-- ========================
+     MAIN WRAPPER
+======================== -->
+<div class="main-wrapper">
 
-        <div class="customer-controls">
-            <input type="text" id="customerSearch" placeholder="Search Customer...">
-            <button id="search-btn"> Search </button>
+    <!-- TOPBAR -->
+    <div class="topbar">
+        <button class="hamburger" id="hamburger">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+        <span class="topbar-title">Customers</span>
+
+        <div class="topbar-search">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <input type="text" placeholder="Search...">
         </div>
 
-        <section class="customer-list">
-            <div class="customer-card">
-                <
+        <div class="topbar-right">
+            <div class="notif-btn" id="notifBtn">
+                <i class="fa-solid fa-bell"></i>
+                <span class="notif-dot"></span>
+                <div class="notif-dropdown">
+                    <p><i class="fa-solid fa-circle-dot" style="color:#2563eb"></i> New Order Received</p>
+                    <p><i class="fa-solid fa-circle-dot" style="color:#ef4444"></i> Low Stock Alert</p>
+                    <p><i class="fa-solid fa-circle-dot" style="color:#22c55e"></i> New Customer Review</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div class="page-content">
+
+        <!-- HERO -->
+        <section class="customer-hero" style="border-radius:12px; margin-bottom:20px;">
+            <div class="hero-content">
+                <h1>Customer Management</h1>
+                <p>Manage customer relationships, track purchase history, and improve customer satisfaction.</p>
             </div>
         </section>
 
+        <!-- STATS -->
+        <div class="customer-stats">
+            <div class="customer-stat-card">
+                <i class="fa-solid fa-users"></i>
+                <h2>1,250</h2>
+                <p>Total Customers</p>
+            </div>
+            <div class="customer-stat-card">
+                <i class="fa-solid fa-user-check"></i>
+                <h2>985</h2>
+                <p>Active Customers</p>
+            </div>
+            <div class="customer-stat-card">
+                <i class="fa-solid fa-crown"></i>
+                <h2>120</h2>
+                <p>VIP Customers</p>
+            </div>
+            <div class="customer-stat-card">
+                <i class="fa-solid fa-user-plus"></i>
+                <h2>45</h2>
+                <p>New This Month</p>
+            </div>
+        </div>
 
+        <!-- SEARCH -->
+        <div class="customer-controls">
+            <input type="text" id="customerSearch" placeholder="Search customer name...">
+            <button id="search-btn">Search</button>
+        </div>
 
+        <!-- CUSTOMER CARDS -->
+        <div class="customer-list">
 
+            <div class="customer-card">
+                <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Ahmed Khan">
+                <h3>Ahmed Khan</h3>
+                <span class="vip-badge">VIP Customer</span>
+                <p>Total Orders: 25</p>
+                <p>Total Spent: $1200</p>
+                <p>Last Order: 2 Days Ago</p>
+                <button>View Profile</button>
+            </div>
 
+            <div class="customer-card">
+                <img src="https://randomuser.me/api/portraits/women/2.jpg" alt="Sara Ali">
+                <h3>Sara Ali</h3>
+                <span class="active-badge">Active</span>
+                <p>Total Orders: 12</p>
+                <p>Total Spent: $650</p>
+                <p>Last Order: Yesterday</p>
+                <button>View Profile</button>
+            </div>
 
+            <div class="customer-card">
+                <img src="https://randomuser.me/api/portraits/men/3.jpg" alt="Usman Ahmed">
+                <h3>Usman Ahmed</h3>
+                <span class="new-badge">New Customer</span>
+                <p>Total Orders: 3</p>
+                <p>Total Spent: $180</p>
+                <p>Last Order: Today</p>
+                <button>View Profile</button>
+            </div>
 
+        </div>
 
+    </div>
+    <!-- end page-content -->
 
-     <footer class="footer">
-
-    <!-- Brand Section -->
-    <div class="footer-col brand">
-        <h2>🛒 SellerPro</h2>
-        <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights in one place.</p>
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-col brand">
+            <h2>🛒 SellerPro</h2>
+            <p>Modern E-Commerce Seller Dashboard for managing products, orders, analytics, and customer insights in one place.</p>
+        </div>
+        <div class="footer-col">
+            <h3>Quick Links</h3>
+            <a href="index.html">Dashboard</a>
+            <a href="Product.html">Products</a>
+            <a href="Order.html">Orders</a>
+            <a href="Review.html">Reviews</a>
+        </div>
+        <div class="footer-col">
+            <h3>Features</h3>
+            <a href="#">Inventory Management</a>
+            <a href="#">Sales Analytics</a>
+            <a href="#">Customer Reviews</a>
+            <a href="#">Notifications</a>
+        </div>
+        <div class="footer-col">
+            <h3>Contact</h3>
+            <p>Email: support@sellerpro.com</p>
+            <p>Phone: +92 300 0000000</p>
+            <p>Location: Karachi, Pakistan</p>
+        </div>
+    </footer>
+    <div class="footer-bottom">
+        <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
     </div>
 
-    <!-- Quick Links -->
-    <div class="footer-col">
-        <h3>Quick Links</h3>
-        <a href="#">Dashboard</a>
-        <a href="#">Products</a>
-        <a href="#">Orders</a>
-        <a href="#">Analytics</a>
-    </div>
-
-    <!-- Features -->
-    <div class="footer-col">
-        <h3>Features</h3>
-        <a href="#">Inventory Management</a>
-        <a href="#">Sales Analytics</a>
-        <a href="#">Customer Reviews</a>
-        <a href="#">Notifications</a>
-    </div>
-
-    <!-- Contact -->
-    <div class="footer-col">
-        <h3>Contact</h3>
-        <p>Email: support@sellerpro.com</p>
-        <p>Phone: +92 300 0000000</p>
-        <p>Location: Karachi, Pakistan</p>
-    </div>
-
-</footer>
-
-<!-- Bottom Bar -->
-<div class="footer-bottom">
-    <p>© 2026 SellerPro Dashboard. All rights reserved.</p>
 </div>
-    
-</body>
-</html>
+<!-- end main-wrapper -->
 
 <script src="script.js"></script>
+</body>
+</html>
